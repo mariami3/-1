@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "О сети магазинов";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Серый фон */
+        }
+
+        .header {
+            background-image: url('https://brandshop.ru/o-magazine/');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white; /* Белый текст */
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .header h1 {
+                margin: 0;
+                font-size: 3em;
+                color: #000; /* Черный цвет для заголовка */
+                font-weight: bold; /* Жирный текст */
+                text-shadow: none; /* Убираем тень */
+            }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+            .container h2 {
+                font-size: 2em;
+                margin-bottom: 10px;
+                color: #000; /* Черный цвет для подзаголовка */
+                font-weight: bold; /* Жирный текст */
+                text-align: center;
+            }
+
+            .container p {
+                font-size: 1.2em;
+                color: #333; /* Серый цвет текста */
+                margin-bottom: 20px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+            .container ul {
+                list-style: none;
+                padding: 0;
+                margin: 20px 0;
+            }
+
+                .container ul li {
+                    font-size: 1.2em;
+                    color: #333; /* Серый цвет текста */
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+
+            .container a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #000; /* Черный цвет кнопки */
+                color: white; /* Белый текст кнопки */
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1.2em;
+            }
+
+                .container a:hover {
+                    background-color: #333; /* Темнее серый при наведении */
+                }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <h1>Карьера в BRANDSHOP!</h1>
+    </div>
+
+    <div class="container">
+        <h2>Магазины BRANDSHOP</h2>
+        <p>BRANDSHOP был основан в 2008 году. На данный момент в Москве открыты два полноценных магазина в центре города, которые предлагают продукцию</p>
+        <p>более 100 брендов мужских и женских коллекций в различных направлениях</p>
+        <p>современной моды: PANGAIA, C.P. Company, Premiata, BE@RBRICK, Ripndip, thisisneverthat.</p>
+        <p>Интернет-магазин brandshop.ru полностью отражает ассортимент каждого магазина, что дает покупателю возможность заранее ознакомиться с товаром,</p>
+        <p>выбрать понравившиеся вещи и приехать в магазин для примерки и приобретения продукции.</p>
+
+       
+
+    </div>
+</body>
+</html>

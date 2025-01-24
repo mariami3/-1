@@ -1,0 +1,31 @@
+﻿@model IEnumerable<proctos.Models.CategoryOfGender>
+
+@{
+    ViewBag.Title = "Category Of Genders";
+}
+
+<h1>Category Of Genders</h1>
+<a href="@Url.Action("AddCategoryOfGender", "Admin")" class="btn btn-success">Add New</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdCategoryOfGender</td>
+                <td>@item.NameCategoryOfGender</td>
+                <td>
+                    <a href="@Url.Action("EditCategoryOfGender", "Admin", new { id = item.IdCategoryOfGender })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("DeleteCategoryOfGender", "Admin", new { id = item.IdCategoryOfGender })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

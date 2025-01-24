@@ -1,0 +1,10 @@
+﻿@model proctos.Models.Review
+
+<div class="review border p-3 mb-3">
+    <strong>@Model.UserName</strong>
+    <div>Оценка: @Html.Raw(new string('★', Model.Rating))</div>
+    <p>@Model.Comment</p>
+    <small>
+        Дата: @(Model.DateCreated.HasValue ? Model.DateCreated.Value.ToShortDateString() : "Не указана")
+    </small>
+</div>

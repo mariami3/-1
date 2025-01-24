@@ -1,0 +1,16 @@
+﻿@model proctos.Models.Material
+
+@{
+    ViewBag.Title = "Add Material";
+}
+
+<h1>Add Material</h1>
+
+<form asp-action="AddMaterial" method="post">
+    <div class="form-group">
+        <label for="Material">Material Name</label>
+        <input type="text" class="form-control" id="Material1" name="Material1" value="@Model?.Material1" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+    <a href="@Url.Action("Materials", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

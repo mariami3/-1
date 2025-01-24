@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Серый фон */
+        }
+
+        .banner {
+            background-image: url('https://brandshop.ru/');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color: white; /* Белый текст */
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .banner h1 {
+                margin: 0;
+                font-size: 3em;
+                color: #000; /* Черный цвет для заголовка */
+                font-weight: bold; /* Жирный текст */
+            }
+
+            .banner p {
+                font-size: 2em; /* Увеличенный размер шрифта */
+                margin: 10px 0;
+                color: #000; /* Черный цвет текста */
+                font-weight: bold; /* Жирный текст */
+            }
+
+            .banner a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 15px 30px;
+                background-color: white; /* Цвет фона кнопки */
+                color: #000; /* Черный цвет текста кнопки */
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1.2em;
+                border: 2px solid #000; /* Черная рамка кнопки */
+            }
+
+                .banner a:hover {
+                    background-color: #000; /* Черный цвет фона кнопки при наведении */
+                    color: white; /* Белый текст кнопки при наведении */
+                }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+            .container h2 {
+                font-size: 2em;
+                margin-bottom: 10px;
+                text-align: center;
+                color: #000; /* Черный цвет подзаголовка */
+            }
+
+            .container p {
+                font-size: 1.2em;
+                color: #333; /* Серый цвет текста */
+                margin-bottom: 20px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+            .container a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #000; /* Черный цвет кнопки */
+                color: white; /* Белый текст кнопки */
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1.2em;
+            }
+
+                .container a:hover {
+                    background-color: #333; /* Темнее серый цвет при наведении */
+                }
+    </style>
+
+</head>
+<body>
+    <div class="banner">
+        <h1>BRANDsHOP</h1>
+        <p>Здесь вы найдете лучшую бркндовую одежду и обувь.</p>
+        <a href="/Home/catalog">Перейти в каталог</a>
+    </div>
+</body>
+</html>

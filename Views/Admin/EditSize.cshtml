@@ -1,0 +1,17 @@
+﻿@model proctos.Models.Size
+
+@{
+    ViewBag.Title = "Edit Size";
+}
+
+<h1>Edit Size</h1>
+
+<form asp-action="EditSize" method="post">
+    <input type="hidden" name="IdSize" value="@Model.IdSize" />
+    <div class="form-group">
+        <label for="SizeValue">Size</label>
+        <input type="number" class="form-control" id="Size1" name="Size1" value="@Model.Size1" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("Sizes", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

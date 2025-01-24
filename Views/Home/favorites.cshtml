@@ -1,0 +1,74 @@
+﻿@using proctos.Models
+
+@{
+    ViewData["Title"] = "Избранное";
+}
+
+<h2>Избранное</h2>
+
+<style>
+    .cloth-card {
+        display: inline-block;
+        border: 1px solid #ccc; /* Серый цвет рамки */
+        border-radius: 5px;
+        width: 300px;
+        margin: 10px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Тень */
+    }
+
+        .cloth-card img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc; /* Серый цвет границы под изображением */
+            margin-bottom: 10px;
+        }
+
+        .cloth-card h3 {
+            margin: 10px 0;
+            color: #000; /* Черный цвет заголовка */
+        }
+
+        .cloth-card p {
+            color: #333; /* Серый цвет текста */
+        }
+
+        .cloth-card button {
+            background-color: #000; /* Черный цвет кнопки */
+            color: white; /* Белый цвет текста кнопки */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .cloth-card button:hover {
+                background-color: #333; /* Темнее серый цвет при наведении */
+            }
+
+    .catalog-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+</style>
+
+
+<div class="catalog-container">
+    @foreach (var cloth in Model)
+    {
+        <div class="cloth-card">
+            <img src="@cloth.Image" alt="@cloth.Name" />
+            <h3>@cloth.Name</h3>
+            <p>@cloth.Description</p>
+            <p><strong>@cloth.Price руб.</strong></p>
+            <form asp-action="RemoveFromFavorites" method="post" style="display:inline">
+                <input type="hidden" name="id" value="@cloth.Id" />
+                <button type="submit">Удалить из избранного</button>
+            </form>
+        </div>
+    }
+</div>
+
+<a href="/Home/Catalog">Вернуться к каталогу</a>

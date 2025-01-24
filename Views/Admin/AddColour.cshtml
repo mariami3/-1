@@ -1,0 +1,16 @@
+﻿@model proctos.Models.Colour
+
+@{
+    ViewBag.Title = "Add Colour";
+}
+
+<h1>Add Colour</h1>
+
+<form asp-action="AddColour" method="post">
+    <div class="form-group">
+        <label for="ColourName">Colour Name</label>
+        <input type="text" class="form-control" id="ColourName" name="ColourName" value="@Model.ColourName" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+    <a href="@Url.Action("Colours", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

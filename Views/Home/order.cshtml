@@ -1,0 +1,122 @@
+﻿@model List<proctos.Models.cloth>
+
+@{
+    ViewData["Title"] = "Заказ одежды";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Серый фон */
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #000; /* Черный цвет заголовка */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333; /* Серый цвет для надписей */
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd; /* Серый цвет рамки */
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+            input[type="email"], input[type="tel"] {
+                font-size: 1em;
+            }
+
+        button {
+            background-color: #000; /* Черный цвет кнопки */
+            color: white; /* Белый цвет текста */
+            border: none;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #333; /* Темнее серый цвет при наведении */
+            }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Заказ</h2>
+
+        <form method="post" action="/Home/SubmitOrder">
+            <div>
+                <label for="cloth">Выберите элемент:</label>
+                <select id="cloth" name="cloth">
+                    @foreach (var cloth in Model)
+                    {
+                        <option value="@cloth.Name">@cloth.Name - @cloth.Price руб.</option>
+                    }
+                </select>
+            </div>
+
+            <div>
+                <label for="payment">Способ оплаты:</label>
+                <select id="payment" name="payment">
+                    <option value="full">Полная оплата</option>
+                    <option value="credit">Оплата в кредит</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="email">Введите вашу почту:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required />
+            </div>
+
+            <div>
+                <label for="phone">Введите ваш номер телефона:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" pattern="\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}" required />
+            </div>
+
+            <div>
+                <button type="submit">Оформить заказ</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

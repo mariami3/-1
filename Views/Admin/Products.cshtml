@@ -1,0 +1,34 @@
+﻿@model IEnumerable<proctos.Models.Product>
+@{
+    ViewBag.Title = "Manage Products";
+}
+
+<h1>Manage Products</h1>
+<a href="@Url.Action("AddProduct", "Admin")" class="btn btn-success">Add Product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.IdProduct</td>
+                <td>@product.NameProduct</td>
+                <td>@product.Price</td>
+                <td>@product.CategoryOfProduct?.NameCategoryOfProduct</td>
+                <td>
+                    <a href="@Url.Action("EditProduct", "Admin", new { id = product.IdProduct })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("DeleteProduct", "Admin", new { id = product.IdProduct })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model proctos.Models.Product
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<h1>Edit Product</h1>
+
+<form asp-action="EditProduct" asp-controller="Admin" method="post">
+    <input type="hidden" asp-for="IdProduct" />
+
+    <div class="form-group">
+        <label asp-for="NameProduct">Product Name</label>
+        <input asp-for="NameProduct" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" type="number" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryOfProductId">Category</label>
+        <select asp-for="CategoryOfProductId" class="form-control" asp-items="ViewBag.Categories"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("Products", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Manage Dashboard";
+}
+
+<h1>Управление</h1>
+
+<div class="catalog-container">
+    <div class="cloth-card">
+        <a href="@Url.Action("Materials", "Admin")">
+            <h3>Материалы</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("Colours", "Admin")">
+            <h3>Цвета</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("Roles", "Admin")">
+            <h3>Роли</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("Users", "Admin")">
+            <h3>Пользователи</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("Products", "Admin")">
+            <h3>Продукты</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("Sizes", "Admin")">
+            <h3>Размеры</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("CategoryOfProducts", "Admin")">
+            <h3>КП</h3>
+        </a>
+    </div>
+    <div class="cloth-card">
+        <a href="@Url.Action("CategoryOfGenders", "Admin")">
+            <h3>КГ</h3>
+        </a>
+    </div>
+</div>
+
+<style>
+    .cloth-card {
+        display: inline-block;
+        border: 1px solid #ccc; /* Серый цвет рамки */
+        border-radius: 5px;
+        width: 300px;
+        margin: 10px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1); /* Тень */
+    }
+
+    .cloth-card img {
+        max-width: 100%;
+        height: auto;
+        border-bottom: 1px solid #ccc; /* Серый цвет границы под изображением */
+        margin-bottom: 10px;
+    }
+
+    .cloth-card h3 {
+        margin: 10px 0;
+        color: #000; /* Черный цвет заголовка */
+    }
+
+    .cloth-card button {
+        background-color: #000; /* Черный цвет кнопки */
+        color: white; /* Белый цвет текста кнопки */
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .cloth-card button:hover {
+        background-color: #333; /* Темнее серый цвет при наведении */
+    }
+
+    .catalog-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .catalog-container a {
+        text-decoration: none; /* Убираем подчеркивание у ссылок */
+    }
+</style>

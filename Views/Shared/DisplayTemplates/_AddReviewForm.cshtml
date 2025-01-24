@@ -1,0 +1,29 @@
+﻿@model proctos.Models.Review
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-action="AddReview" method="post">
+        <input type="hidden" name="ProductId" value="@Model.ProductId" />
+
+        <div class="mb-3">
+            <label for="Rating" class="form-label">Оценка (1-5 звёзд)</label>
+            <select name="Rating" id="Rating" class="form-select">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="Comment" class="form-label">Отзыв</label>
+            <textarea name="Comment" id="Comment" class="form-control" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Добавить отзыв</button>
+    </form>
+}
+else
+{
+    <p>Пожалуйста, <a href="@Url.Action("Aut", "Home")">войдите</a>, чтобы оставить отзыв.</p>
+}

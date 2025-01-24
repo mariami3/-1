@@ -1,0 +1,31 @@
+﻿@model IEnumerable<proctos.Models.Colour>
+
+@{
+    ViewBag.Title = "Colours";
+}
+
+<h1>Colours</h1>
+<a href="@Url.Action("AddColour", "Admin")" class="btn btn-success mb-3">Add New Colour</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Colour Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var colour in Model)
+        {
+            <tr>
+                <td>@colour.IdColour</td>
+                <td>@colour.ColourName</td>
+                <td>
+                    <a href="@Url.Action("EditColour", "Admin", new { id = colour.IdColour })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("DeleteColour", "Admin", new { id = colour.IdColour })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

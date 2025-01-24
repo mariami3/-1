@@ -1,0 +1,16 @@
+﻿@model proctos.Models.CategoryOfProduct
+
+@{
+    ViewBag.Title = "Add Category Of Product";
+}
+
+<h1>Add Category Of Product</h1>
+
+<form asp-action="AddCategoryOfProduct" method="post">
+    <div class="form-group">
+        <label for="NameCategoryOfProduct">Name</label>
+        <input type="text" class="form-control" id="NameCategoryOfProduct" name="NameCategoryOfProduct" value="@Model.NameCategoryOfProduct" required>
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+    <a href="@Url.Action("CategoryOfProducts", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

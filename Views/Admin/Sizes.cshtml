@@ -1,0 +1,31 @@
+﻿@model IEnumerable<proctos.Models.Size>
+
+@{
+    ViewBag.Title = "Sizes";
+}
+
+<h1>Sizes</h1>
+<a href="@Url.Action("AddSize", "Admin")" class="btn btn-success">Add New</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Size</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdSize</td>
+                <td>@item.Size1</td>
+                <td>
+                    <a href="@Url.Action("EditSize", "Admin", new { id = item.IdSize })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("DeleteSize", "Admin", new { id = item.IdSize })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

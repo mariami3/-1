@@ -1,0 +1,77 @@
+﻿@model proctos.Models.Product
+@{
+    ViewBag.Title = "Add Product";
+}
+
+<h1>Add New Product</h1>
+
+<form asp-action="AddProduct" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="NameProduct">Product Name</label>
+        <input type="text" id="NameProduct" name="NameProduct" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Price</label>
+        <input type="number" id="Price" name="Price" class="form-control" required step="0.01" />
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryOfProductId">Category</label>
+        <select id="CategoryOfProductId" name="CategoryOfProductId" class="form-control" required>
+            <option value="">Select Category</option>
+            @foreach (var category in ViewBag.Categories as List<proctos.Models.CategoryOfProduct>)
+            {
+                <option value="@category.IdCategoryOfProduct">@category.NameCategoryOfProduct</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryOfGenderId">Gender</label>
+        <select id="CategoryOfGenderId" name="CategoryOfGenderId" class="form-control" required>
+            <option value="">Select Gender</option>
+            @foreach (var gender in ViewBag.Genders as List<proctos.Models.CategoryOfGender>)
+            {
+                <option value="@gender.IdCategoryOfGender">@gender.NameCategoryOfGender</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="SizeId">Size</label>
+        <select id="SizeId" name="SizeId" class="form-control" required>
+            <option value="">Select Size</option>
+            @foreach (var size in ViewBag.Sizes as List<proctos.Models.Size>)
+            {
+                <option value="@size.IdSize">@size.Size1</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ColourId">Color</label>
+        <select id="ColourId" name="ColourId" class="form-control" required>
+            <option value="">Select Color</option>
+            @foreach (var colour in ViewBag.Colours as List<proctos.Models.Colour>)
+            {
+                <option value="@colour.IdColour">@colour.ColourName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="MaterialId">Material</label>
+        <select id="MaterialId" name="MaterialId" class="form-control" required>
+            <option value="">Select Material</option>
+            @foreach (var material in ViewBag.Materials as List<proctos.Models.Material>)
+            {
+                <option value="@material.IdMaterial">@material.Material1</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Product</button>
+</form>
+
+<a href="@Url.Action("Products", "Admin")" class="btn btn-secondary mt-2">Back to Products</a>

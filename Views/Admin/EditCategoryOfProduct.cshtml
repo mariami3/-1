@@ -1,0 +1,17 @@
+﻿@model proctos.Models.CategoryOfProduct
+
+@{
+    ViewBag.Title = "Edit Category Of Product";
+}
+
+<h1>Edit Category Of Product</h1>
+
+<form asp-action="EditCategoryOfProduct" method="post">
+    <input type="hidden" name="IdCategoryOfProduct" value="@Model.IdCategoryOfProduct" />
+    <div class="form-group">
+        <label for="NameCategoryOfProduct">Name</label>
+        <input type="text" class="form-control" id="NameCategoryOfProduct" name="NameCategoryOfProduct" value="@Model.NameCategoryOfProduct" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("CategoryOfProducts", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

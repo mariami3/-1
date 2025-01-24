@@ -1,0 +1,62 @@
+﻿@model proctos.Models.Product
+
+<div class="container mt-4">
+    <h1>@Model.NameProduct</h1>
+    <p><strong>Цена:</strong> @Model.Price ₽</p>
+    <img src="@Model.ImageOfProduct" alt="@Model.NameProduct" class="img-fluid mb-3" />
+    <!-- Вызов компонента для отображения среднего рейтинга -->
+    @await Component.InvokeAsync("AverageRating", new { productId = Model.IdProduct })
+
+    <h2>Отзывы</h2>
+    @if (Model.Reviews.Any())
+    {
+        @foreach (var review in Model.Reviews)
+        {
+            <div class="review border p-3 mb-3">
+                <strong>@review.UserName</strong>
+                <div>Оценка: @Html.Raw(new string('★', review.Rating))</div>
+                <p>@review.Comment</p>
+                <small>
+                    Дата:
+                    @(review.DateCreated.HasValue ? review.DateCreated.Value.ToShortDateString() : "Дата неизвестна")
+                </small>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Пока отзывов нет.</p>
+    }
+
+    <h3>Добавить отзыв</h3>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="AddReview" method="post">
+            <input type="hidden" name="ProductId" value="@Model.IdProduct" />
+
+            <div class="mb-3">
+                <label for="UserName" class="form-label">Имя</label>
+                <input type="text" name="UserName" id="UserName" class="form-control" required />
+
+                <label for="Rating" class="form-label mt-3">Оценка</label>
+                <select name="Rating" id="Rating" class="form-select">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <option value="@i">@i звёзд</option>
+                    }
+                </select>
+
+                <label for="Comment" class="form-label mt-3">Отзыв</label>
+                <textarea name="Comment" id="Comment" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Добавить</button>
+        </form>
+    }
+    else
+    {
+        <p>Пожалуйста, <a asp-controller="Home" asp-action="Aut">войдите</a>, чтобы оставить отзыв.</p>
+    }
+
+
+</div>

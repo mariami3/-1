@@ -1,0 +1,18 @@
+﻿@model proctos.Models.Role
+@{
+    ViewBag.Title = "Edit Roles";
+}
+
+<h1>Edit Roles</h1>
+
+<form asp-action="EditRoles" asp-controller="Admin" method="post">
+    <input type="hidden" asp-for="IdRole" />
+
+    <div class="form-group">
+        <label asp-for="RoleName">Role Name</label>
+        <input asp-for="RoleName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="@Url.Action("Roles", "Admin")" class="btn btn-secondary">Cancel</a>
+</form>

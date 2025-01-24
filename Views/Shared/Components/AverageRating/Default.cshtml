@@ -1,0 +1,14 @@
+﻿@if (Model == 0)
+{
+    <p>Рейтинг отсутствует</p>
+}
+else
+{
+    <div class="average-rating">
+        <strong>Средний рейтинг:</strong> @Model.ToString("0.0") из 5
+        <div class="stars" style="color: gold;">
+            @Html.Raw(new string('★', (int)Math.Round((decimal)Model)))
+            @Html.Raw(new string('☆', 5 - (int)Math.Round((decimal)Model)))
+        </div>
+    </div>
+}

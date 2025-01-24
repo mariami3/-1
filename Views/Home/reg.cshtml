@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="form-container">
+    <form method="post" asp-action="reg" class="registration-form">
+        <div class="form-card">
+            <h3>Регистрация</h3>
+
+            <label for="fullname">Полное имя</label>
+            <input type="text" name="fullName" required />
+
+            <label for="email">Email</label>
+            <input type="email" name="email" required />
+
+            <label for="phone">Телефон</label>
+            <input type="text" name="phone" required />
+
+            <label for="password">Пароль</label>
+            <input type="password" name="password" required />
+
+            <!-- Новое поле для логина -->
+            <label for="login">Логин</label>
+            <input type="text" name="loginUser" required />
+
+            <button type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+
+    <!-- Сообщение об ошибке -->
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="error-message">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    <a class="auth-link" asp-action="Aut">Уже есть аккаунт? Авторизоваться</a>
+</div>
+
+<style>
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .registration-form {
+        width: 100%;
+        max-width: 400px; /* Максимальная ширина формы */
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    .form-card h3 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .registration-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .registration-form input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    .registration-form button {
+        width: 100%;
+        padding: 12px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .registration-form button:hover {
+        background-color: #333;
+    }
+
+    .error-message {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .auth-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1rem;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .auth-link:hover {
+        text-decoration: underline;
+    }
+</style>
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<proctos.Models.Role>
+@{
+    ViewBag.Title = "Manage Roles";
+}
+
+<h1>Manage Roles</h1>
+<a href="@Url.Action("AddRole", "Admin")" class="btn btn-success">Add Role</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Role Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.IdRole</td>
+                <td>@role.RoleName</td>
+                <td>
+                    <a href="@Url.Action("EditRoles", "Admin", new { id = role.IdRole })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("DeleteRole", "Admin", new { id = role.IdRole })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
